@@ -16,7 +16,9 @@ use App\Http\Controllers\Auth\AuthController;
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/', [AuthController::class, 'showLogin'])->name('showLogin');
+    Route::get('/admin', [AuthController::class, 'admin_showLogin'])->name('admin_showLogin');
     Route::post('login', [AuthController::class, 'login'])->name('login');
+    Route::post('login/admin', [AuthController::class, 'admin_login'])->name('admin_login');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -24,4 +26,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('home', function () {
         return view('home');
     })->name('home');
+    Route::get('home/admin', function () {
+        return view('admin_home');
+    })->name('admin_home');
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 });

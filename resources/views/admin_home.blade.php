@@ -17,8 +17,8 @@
   @endif
 <h3>プロフィール</h3>
 <ul></ul>
-  <li>名前:{{Auth::user()->name}}</li>
-  <li>メールアドレス:{{Auth::user()->email}}</li>
+  <li>名前:{{Auth::admin()->name}}</li>
+  <li>メールアドレス:{{Auth::admin()->email}}</li>
   <li></li>
 </ul>
 <form action="{{route('logout')}}" method="POST">
